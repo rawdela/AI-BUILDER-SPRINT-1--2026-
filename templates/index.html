@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Who Gets The Last Seat? — Multi-Model AI Admissions</title>
+
+    <!-- CSS Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <div class="eyebrow">Hackathon Admissions Challenge</div>
+        <h1>Who Gets The Last Seat?</h1>
+        <div class="sub">
+          Six candidates, five available spots: two guaranteed job placements,
+          three training-only, and one rejection. Each applicant undergoes
+          conversational follow-ups and mid-interview probes across dedicated
+          models.
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="runBtn" class="button primary" onclick="runSimulation()">
+          Run admissions simulation
+        </button>
+        <a class="button secondary" href="/api/download"
+          >Download results JSON</a
+        >
+      </div>
+
+      <div id="statusBox" class="status-card">
+        <div class="status-row">
+          <div class="status-main">
+            <span id="spinner" class="spinner"></span>
+            <div>
+              <strong id="message" style="font-size: 15px"
+                >Ready to run.</strong
+              >
+              <div class="meta" id="hint" style="margin-top: 2px">
+                Click above to start the live interview pipeline.
+              </div>
+            </div>
+          </div>
+          <span id="pill" class="pill">IDLE</span>
+        </div>
+        <div class="progress"><div id="bar" class="bar"></div></div>
+      </div>
+
+      <div id="results"></div>
+    </div>
+
+    <!-- Main Application Logic -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
